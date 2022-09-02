@@ -1,7 +1,7 @@
 import * as React from "react";
 import toast from "react-hot-toast";
 import { Button, ButtonProps } from "@chakra-ui/react";
-import { useAccount, useConnect, useNetwork } from "wagmi";
+import { useAccount, useConnect, useNetwork, chain as chains } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
 interface AuthButtonProps extends ButtonProps {
@@ -23,8 +23,10 @@ const AuthButton: React.FunctionComponent<AuthButtonProps> = ({
     if (error?.name === "ConnectorNotFoundError") {
       toast.error("MetaMask extension required to sign in");
     }
-    if (isConnected && chain?.id !== 1337) {
-      toast.error("please connect to the local network");
+    if (isConnected && chain?.id !== chains.polygonMumbai.id) {
+      toast.error("please connect to the Polygon Mumbai test network", {
+        id: "network-error",
+      });
     }
   }, [error, chain, isConnected]);
 

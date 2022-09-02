@@ -23,7 +23,7 @@ const App: NextPage = () => {
   return (
     <Box p={8} maxW="600px" minW="320px" m="0 auto">
       <Questions />
-      {/* <AuthButton text="Connected!"></AuthButton> */}
+      <AuthButton text="Connected!"></AuthButton>
     </Box>
   );
 };

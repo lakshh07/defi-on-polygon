@@ -24,7 +24,7 @@ const useGoflowContract = () => {
 
     const contract = wagmi.useContract({
         // Change this adress after every deploy!
-        addressOrName: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+        addressOrName: '0xfa7e81EF486F0f284Aa7648d90eEb59e71fdDD65',
         contractInterface: GoflowContract.abi,
         signerOrProvider: signer || provider,
     });
